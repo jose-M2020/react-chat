@@ -26,10 +26,15 @@ const Message = ({ message }) => {
           }
           alt=""
         />
-        <span>just now</span>
       </div>
       <div className="messageContent">
-        <p>{message.text}</p>
+        <p>
+          {message.text}
+          <span className="time">{message.date.toDate().toLocaleTimeString('default', {
+            hour: '2-digit',
+            minute: '2-digit',
+          })}</span>
+        </p>
         {message.img && <img src={message.img} alt="" />}
       </div>
     </div>
