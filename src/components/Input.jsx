@@ -68,6 +68,12 @@ const Input = () => {
   };
   return (
     <div className="input">
+      {img && (
+        <div className="image-selected">
+          <span className="remove" onClick={() => setImg(null)}></span>
+          <img src={URL.createObjectURL(img)}  alt="File to upload"/>
+        </div>
+      )}
       <input
         type="text"
         placeholder="Type something..."

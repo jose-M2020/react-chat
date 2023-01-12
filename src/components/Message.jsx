@@ -28,6 +28,7 @@ const Message = ({ message }) => {
         />
       </div>
       <div className="messageContent">
+        {message.img && <img src={message.img} alt="" />}
         <p>
           {message.text}
           <span className="time">{message.date.toDate().toLocaleTimeString('default', {
@@ -35,7 +36,6 @@ const Message = ({ message }) => {
             minute: '2-digit',
           })}</span>
         </p>
-        {message.img && <img src={message.img} alt="" />}
       </div>
     </div>
   );
