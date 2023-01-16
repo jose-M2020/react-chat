@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase";
+// import { useAuth } from "../context/AuthContext";
 
 const Login = () => {
   const [err, setErr] = useState(false);
   const navigate = useNavigate();
+
+  // const { loginWithGoogle } = useAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -19,6 +22,16 @@ const Login = () => {
       setErr(true);
     }
   };
+
+  // const handleGoogleSignin = async () => {
+  //   try {
+  //     await loginWithGoogle();
+  //     // navigate("/");
+  //   } catch (error) {
+  //     console.log(error.message);
+  //   }
+  // };
+  
   return (
     <div className="formContainer">
       <div className="formWrapper">
@@ -30,6 +43,7 @@ const Login = () => {
           <button>Sign in</button>
           {err && <span>Something went wrong</span>}
         </form>
+        {/* <GoogleButton onClick={handleGoogleSignin} /> */}
         <p>You don't have an account? <Link to="/register">Register</Link></p>
       </div>
     </div>
